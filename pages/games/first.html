@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-tw">
+  <head>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chp1 啓程</title>
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        h1#title {
+            position: absolute;
+            font-size: 4rem;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0;
+            white-space: nowrap;
+        }
+
+        h1#title.active {
+            animation: fadeTitle 5s ease-in-out 250ms;
+        }
+
+        @keyframes fadeTitle {
+            from {
+                opacity: 0;
+            }
+            40%, 60% {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- background image -->
+    <div class="image-box">
+        <img src="/class.png" alt="" id="background-image">
+    </div>
+
+    <h1 id="title" class="">Ch1 </h1>
+ 
+    <!-- Dialog -->
+    <section id="dialog">
+
+        <div id="speaker"></div>
+
+        <p id="content"></p>
+
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/chapter/first.ts"></script>
+
+  </body>
+
+</html>

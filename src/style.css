@@ -1,3 +1,14 @@
+
+@font-face {
+  font-family: cubic;
+  src: url("/font/cubic 11.ttf");
+}
+
+@font-face {
+  font-family: unifont;
+  src: url("/font/unifont.otf");
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,73 +24,72 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Reset CSS */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
+ul, ol {
+  list-style: none;
 }
+
+h1, h2, h3, h4, h5, h6, p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Navbar */
+nav.navbar {
+  width: 100%;
+}
+
+ul.navbar-list {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+li.navbar-link {
+  padding: .3rem .5rem;
+  border-radius: 4px;
+}
+
+li.navbar-link:hover {
+  background-color: #213547;
+}
+
+li.navbar-link a {
+  color: white;
+}
+
+li.navbar-link.active a{
+  color: skyblue;
+}
+
+/* GUI 定位 */
 
 body {
+  padding: 1.4rem;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: cubic;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+div.image-box {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+div.image-box > #background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (prefers-color-scheme: light) {

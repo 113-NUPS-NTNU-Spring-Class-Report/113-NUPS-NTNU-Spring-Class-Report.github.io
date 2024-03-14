@@ -11,5 +11,9 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "vite-plugin-multiple-page": "^0.4.3"
   }
 }
