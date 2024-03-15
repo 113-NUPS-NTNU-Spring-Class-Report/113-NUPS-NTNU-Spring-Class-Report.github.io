@@ -15,7 +15,7 @@ interface GUIManagementInterface
     setSpeaker(): void;
 
     // Controller Content
-    setContent(): void;
+    setContent(content: string): void;
 }
 
 export class GUIManagement implements GUIManagementInterface
@@ -74,7 +74,23 @@ export class GUIManagement implements GUIManagementInterface
 
     };
 
-    setContent(): void {
+    setContent(content: string): void {
+
+        const data = content.split('')
+        const container = this.content;
+
+        if(container.innerHTML.split('').length > 0) {
+            container.innerHTML = '';
+        }
+
+        let index = 0
+        function writing() {
+            if (index < data.length) {
+                container.innerHTML += data[index ++];
+                setTimeout(writing, 60);
+            }
+        }
+        writing();
 
     };
 

@@ -37,9 +37,55 @@
                 opacity: 0;
             }
         }
+        
+        /* dialog */
+
+        div#gui {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2rem;
+        }
+
+        section#dialog {
+            padding: 2rem;
+            background-color: #1f1f20;
+            border-radius: .4rem;
+            border: 3px solid orange;
+            box-shadow: inset 5px 5px 20px #242424;
+            position: absolute;
+            bottom: 10rem;
+        }
+
+        div#speaker {
+
+        }
+
+        p#content {
+        
+        }
+
+        p#content::after{
+            content: '.';
+            font-size: 4rem;
+            line-height: 0;
+            color:white !important;
+            animation: blink 1s steps(2) infinite;
+        }
+
+        @keyframes blink{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
     </style>
 
-    <script type="module" crossorigin src="/assets/chapterFirst-CHY31xJM.js"></script>
+    <script type="module" crossorigin src="/assets/chapterFirst-CiFAH3QK.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/main-DFbcQGI0.js">
     <link rel="stylesheet" crossorigin href="/assets/main-r3eZKGRt.css">
   </head>
@@ -53,13 +99,17 @@
     <h1 id="title" class="">Ch1 </h1>
  
     <!-- Dialog -->
-    <section id="dialog">
-
-        <div id="speaker"></div>
-
-        <p id="content"></p>
-
-    </section>
+    <div id="gui">
+    
+        <section id="dialog">
+    
+            <div id="speaker"></div>
+    
+            <p id="content"></p>
+    
+        </section>
+        
+    </div>
 
 
   </body>

@@ -77,6 +77,8 @@ body {
   font-family: cubic;
 }
 
+/* background image */
+
 div.image-box {
   width: 100vw;
   height: 100vh;
@@ -91,6 +93,7 @@ div.image-box > #background-image {
   height: 100%;
   object-fit: cover;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
