@@ -3,6 +3,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
     define: { 'process.env': {} },
@@ -20,14 +21,14 @@ export default defineConfig({
         open: true,
         cors: true,
     },
-    base: './',
+    base: '/',
     build: {
         outDir: 'docs',
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                aboutMe: resolve(__dirname, 'docs/pages/about-me.html')
-            }
+                aboutMe: resolve(__dirname, 'pages/about-me.html')
+            },
         }
     }
 })
