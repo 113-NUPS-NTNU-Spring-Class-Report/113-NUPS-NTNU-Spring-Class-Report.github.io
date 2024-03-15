@@ -1,12 +1,10 @@
 
 // Utilities
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-
-    ],
     define: { 'process.env': {} },
     resolve: {
         extensions: [
@@ -14,6 +12,7 @@ export default defineConfig({
             '.jsx',
             '.ts',
             '.tsx',
+            '.html'
         ],
     },
     server: {
@@ -22,4 +21,13 @@ export default defineConfig({
         cors: true,
     },
     base: './',
+    build: {
+        outDir: 'docs',
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'),
+                aboutMe: resolve(__dirname, 'docs/pages/about-me.html')
+            }
+        }
+    }
 })
