@@ -49,15 +49,11 @@ export class GUIManagement implements GUIManagementInterface
         this.title.innerText = title;
     };
 
-    showTitle(): void {
-        if (!this.title.classList.contains('active')) {
-            this.title.classList.add('active');
-            setTimeout(() => {
-                this.title.classList.remove('active')
-            }, 6000)
-        } else {
-
-        }
+    showTitle(delay: number = 6): void {
+        this.title.classList.add('active');
+        setTimeout(() => {
+            this.title.classList.remove('active');
+        }, delay * 1000);
     };
 
     toggleDialog(): void {

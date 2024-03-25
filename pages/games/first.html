@@ -57,6 +57,7 @@
             box-shadow: inset 5px 5px 20px #242424;
             position: absolute;
             bottom: 10rem;
+            max-width: 100%;
         }
 
         div#speaker {
@@ -65,6 +66,7 @@
 
         p#content {
             font-size: 1.4rem;
+            width: 100%;
         }
 
         p#content::after{
@@ -83,6 +85,25 @@
                 opacity: 1;
             }
         }
+
+        div#options {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 4;
+            gap: .6rem;
+            font-size: 1.3rem;
+        }
+
+        p#option:hover {
+            color: skyblue;
+            cursor: pointer;
+            transition: all .15s ease-in;
+        }
+
+        p#option:hover::before {
+            content: "> ";
+        }
+
     </style>
 
   </head>
@@ -103,6 +124,14 @@
             <div id="speaker"></div>
     
             <p id="content"></p>
+
+            <div id="options">
+
+                <p id="option">我是第一選擇</p>
+
+                <p id="option">我是第二選擇</p>
+
+            </div>
     
         </section>
         
