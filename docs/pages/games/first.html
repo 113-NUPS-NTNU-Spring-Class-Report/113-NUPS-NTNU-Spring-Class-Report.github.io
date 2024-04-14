@@ -8,8 +8,18 @@
     <title>Chp1 啓程</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            padding: 3rem;
         }
 
         h1#title {
@@ -23,7 +33,7 @@
         }
 
         h1#title.active {
-            animation: fadeTitle 5s ease-in-out 250ms;
+            animation: fadeTitle 4s ease-in-out 250ms;
         }
 
         @keyframes fadeTitle {
@@ -41,22 +51,16 @@
         /* dialog */
 
         div#gui {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 2rem;
+            width: 100%;
         }
 
         section#dialog {
-            padding: 2rem;
+            padding: 1.4rem 2rem;
             background-color: #1f1f20;
             border-radius: .4rem;
             border: 3px solid orange;
             box-shadow: inset 5px 5px 20px #242424;
-            position: absolute;
-            bottom: 10rem;
+            margin-bottom: 2rem;
         }
 
         div#speaker {
@@ -64,12 +68,13 @@
         }
 
         p#content {
-        
+            font-size: 1.2rem;
+            width: 100%;
         }
 
         p#content::after{
             content: '.';
-            font-size: 4rem;
+            font-size: 2rem;
             line-height: 0;
             color:white !important;
             animation: blink 1s steps(2) infinite;
@@ -83,11 +88,30 @@
                 opacity: 1;
             }
         }
+
+        div#options {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 4;
+            gap: .6rem;
+            font-size: 1.3rem;
+        }
+
+        p#option:hover {
+            color: skyblue;
+            cursor: pointer;
+            transition: all .15s ease-in;
+        }
+
+        p#option:hover::before {
+            content: "> ";
+        }
+
     </style>
 
-    <script type="module" crossorigin src="/assets/chapterFirst-CiFAH3QK.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/main-DFbcQGI0.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-r3eZKGRt.css">
+    <script type="module" crossorigin src="/assets/chapterFirst-C7xKN44X.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-R6-TiNIX.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-DJNqOTrD.css">
   </head>
   <body>
 
@@ -106,6 +130,14 @@
             <div id="speaker"></div>
     
             <p id="content"></p>
+
+            <div id="options">
+
+                <p id="option">我是第一選擇</p>
+
+                <p id="option">我是第二選擇</p>
+
+            </div>
     
         </section>
         

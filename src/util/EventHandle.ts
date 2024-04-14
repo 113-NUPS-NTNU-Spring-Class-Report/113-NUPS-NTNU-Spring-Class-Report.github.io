@@ -2,7 +2,7 @@
 
 export class EventHandle {
 
-    public actions = [];
+    public actions: { action: Function, delay: number }[] = [];
     public totalDelay = <number>0;
 
     constructor() {
@@ -10,7 +10,7 @@ export class EventHandle {
         this.totalDelay = 0;
     }
 
-    addAction(action: Function, delay: number) {
+    addAction(action: () => void, delay: number) {
         this.totalDelay = this.totalDelay + delay;
         this.actions.push({ action, delay: this.totalDelay });
     }
