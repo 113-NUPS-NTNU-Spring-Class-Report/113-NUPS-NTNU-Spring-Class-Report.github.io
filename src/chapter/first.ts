@@ -37,13 +37,14 @@ branch1.addAction(() => {
                 text: '我的身體好痛，肋骨好像刺穿了我的肺部。要不。。。就別起了。就這樣死去，也沒事吧。。。',
                 event: () => {
                     guiManagement.toggleOptions();
-                    branchTwo();
+                    branch2.start();
                 }
             },
         ]
     );
     guiManagement.toggleOptions();
 }, 4000);
+
 // branch 2
 const branch2 = new EventHandle();
 
@@ -89,46 +90,6 @@ eventHandle.addAction(() => {
         ]
     );
 }, 0);
-
-    // branch one
-    function branchOne()
-    {
-        eventHandle.addAction(() => {
-            guiManagement.toggleOptions();
-            guiManagement.setContent("這裏到底是。。。？");
-        }, 2000);
-
-        eventHandle.addAction(() => {
-            guiManagement.setContent("我的身體在冰冷的地面上，再仔細地感受一下，地面上伴隨著逐漸變的强烈的震動。");
-        }, 4000);
-
-        eventHandle.addAction(() => {
-            guiManagement.setOptions(
-                [
-                    {
-                        text: '地面的震動我無法忽視，我的理智告訴我必須用盡全力起身。',
-                        event: () => {
-                            
-                        }
-                    },
-                    {
-                        text: '我的身體好痛，肋骨好像刺穿了我的肺部。要不。。。就別起了。就這樣死去，也沒事吧。。。',
-                        event: () => {
-                            guiManagement.toggleOptions();
-                            branch2.start();
-                        }
-                    },
-                ]
-            );
-            guiManagement.toggleOptions();
-        }, 4000);
-    }
-    
-    // Branch two
-    function branchTwo()
-    {
-        
-    }
 
 // run event serial
 eventHandle.start();
