@@ -33,22 +33,37 @@
       }
 
       div.progress_bar {
-        height: 20px;
-        background: linear-gradient(45deg, #213547 0 65%, #182836 65% 100%);
+        height: 40px;
+        width: 0px;
+        border-radius: 5px;
         background-position: top left;
-        animation: loading 4s ease-in-out forwards;
+        background: linear-gradient(-45deg, #213547, #182836, #2e4d68, #4d7292);
+	      background-size: 200% 200%;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+        top: 60%;
+        left: 10%;
+        transform: translateX(0) translateY(-50%);
+        color: transparent;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       @keyframes loading {
         0% {
-          width: 0%;
+          width: 0;
         }
         100% {
-          width: 60%;
+          width: 80%;
         }
       }
 
@@ -81,16 +96,20 @@
       </ul>
     </nav>
     
-    <button class="start-game-button"></button>
+    <button class="start-game-button" id="startGame"></button>
 
-    <!-- <div class="progress_bar"> -->
+    <div class="progress_bar">
 
     </div>
 
     <script type="module" src="/src/main.ts"></script>
 
     <script>
-
+      const button = document.querySelector('#startGame');
+      const bar = document.querySelector('.progress_bar');
+      button.addEventListener('click', () => {
+        bar.style.animation = "gradient 3s ease-in-out infinite, loading 7s cubic-bezier(0.1, 0.7, 1, 0.1) forwards"
+      });
     </script>
 
   </body>
