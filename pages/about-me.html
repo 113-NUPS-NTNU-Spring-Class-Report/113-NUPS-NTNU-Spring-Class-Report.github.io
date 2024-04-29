@@ -13,14 +13,14 @@
         margin-bottom: 4rem;
       }
       .start-game-button {
-        color: white;
+        color: rgb(0, 0, 0);
         font-size: 1.2rem;
         text-decoration: none;
         padding: .4rem;
       }
 
       h2.section-title {
-        color: white;
+        color: rgb(0, 0, 0);
         text-align: center;
         font-size: 1.8rem;
         text-decoration: underline;
@@ -29,16 +29,17 @@
       }
       /* animation effect */
       #content {
-        padding: 10px;
+        padding: 11px;
         font-size: 3rem;
         text-align: center;
         border-radius: 20px;
-        margin-bottom: 2rem;
+        margin: 2rem 0;
+        color: black;
       }
 
       #content::after{
         content: '|';
-        color:darkgray;
+        color:rgb(49, 49, 49);
         animation: blink 1s infinite;
       }
 
@@ -152,18 +153,25 @@
 
     <nav class="navbar">
       <ul class="navbar-list">
-        <li class="navbar-link">
-            <a href="/index.html">首頁</a>
-        </li>
-        <li class="navbar-link active">
-            <a href="/pages/about-me.html">關於我們</a>
-        </li>
-        <li class="navbar-link">
-            <a href="/pages/download.html">下載專區</a>
-        </li>
-        <li class="navbar-link">
-            <a href="/pages/thanks.html">恩謝</a>
-        </li>
+        <div>
+          <li class="navbar-link active">
+              <a href="/index.html">首頁</a>
+          </li>
+          <li class="navbar-link ">
+              <a href="/pages/about-me.html">關於我們</a>
+          </li>
+          <li class="navbar-link">
+              <a href="/pages/download.html">下載專區</a>
+          </li>
+          <li class="navbar-link">
+              <a href="/pages/thanks.html">恩謝</a>
+          </li>
+        </div>
+        <div>
+          <li class="navbar-link github">
+            <a target="_github" href="https://github.com/113-NUPS-NTNU-Spring-Class-Report/113-NUPS-NTNU-Spring-Class-Report.github.io">Github</a>
+          </li>
+        </div>
       </ul>
     </nav>
     

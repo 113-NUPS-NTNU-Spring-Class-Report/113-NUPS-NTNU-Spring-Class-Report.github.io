@@ -16,7 +16,7 @@
 
   color-scheme: light;
   color: white !important;
-  background-color: #242424 !important;
+  background-color: #fcfcfc !important;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,6 +26,12 @@
 }
 
 /* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
 }
@@ -38,31 +44,61 @@ h1, h2, h3, h4, h5, h6, p{
   margin-block-end: 0;
 }
 
-body {
-  background-color: #242424 !important;
-}
-
 /* Navbar */
 nav.navbar {
   width: 100%;
+  border-radius: 8px;
+  box-shadow: 6px 6px 15px #21354788;
+  overflow: hidden;
+  position: sticky;
+  top: 2rem;
+  z-index: 100;
 }
 
 ul.navbar-list {
   display: flex;
-  column-gap: 2rem;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: white;
+  background: linear-gradient(45deg, #213547 0 65%, #182836 65% 100%);
+}
+
+ul.navbar-list > div {
+  display: flex;
+  column-gap: 1.6rem;
+  justify-content: flex-start;
+  align-items: center;
   font-size: 1.2rem;
+  padding: 1rem 2rem;
 }
 
 li.navbar-link {
-  padding: .3rem .5rem;
+  cursor: pointer;
+  padding: .4rem .8rem;
   border-radius: 4px;
 }
 
+li.navbar-link.github {
+  background: orange;
+  padding: .4rem .8rem;
+  border-radius: 10px;
+}
+
+li.navbar-link.github:hover {
+  background: linear-gradient(45deg, orange 0 50%, rgb(196, 127, 0) 50% 100%);
+}
+
+li.navbar-link.github:active {
+  background: rgb(196, 127, 0);
+}
+
 li.navbar-link:hover {
-  background-color: #213547;
+  background-color: #3f5970;
+}
+
+li.navbar-link:active {
+  background: #08233a;
+  box-shadow: inset 0 0 10px #00000044;
 }
 
 li.navbar-link a {
@@ -76,10 +112,12 @@ li.navbar-link.active a{
 /* GUI 定位 */
 
 body {
-  padding: 1.4rem;
+  padding: 2rem;
   margin: 0;
   overflow-x: hidden;
   font-family: cubic;
+  height: 100%;
+  width: 100%;
 }
 
 /* background image */

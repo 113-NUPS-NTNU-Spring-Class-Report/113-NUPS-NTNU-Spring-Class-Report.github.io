@@ -15,6 +15,8 @@ const eventHandle = new EventHandle();
 // branch 1
 const branch1 = new EventHandle();
 
+// #region
+
 branch1.addAction(() => {
     guiManagement.toggleOptions();
     guiManagement.setContent("這裏到底是...？");
@@ -49,8 +51,12 @@ branch1.addAction(() => {
     guiManagement.toggleOptions();
 }, 4000);
 
+// #endregion
+
 // branch 2
 const branch2 = new EventHandle();
+
+// #region
 
 branch2.addAction(() => {
     guiManagement.setContent("此時，大腦傳來陣痛感。一些零碎畫面逐漸在我腦海中浮現。");
@@ -102,12 +108,19 @@ branch2.addAction(() => {
     guiManagement.toggleOptions();
 }, 0);
 
+// #endregion
+
 // branch2_2
 const branch2_2 = new EventHandle();
+
+// #region
 
 branch2_2.addAction(() => {
 
 }, 3000);
+
+// #endregion
+
 
 // Add action
 eventHandle.addAction(() => {

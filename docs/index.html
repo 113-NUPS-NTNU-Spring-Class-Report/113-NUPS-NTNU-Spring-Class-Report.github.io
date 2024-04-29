@@ -5,55 +5,95 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark">
-    <title>Final Report</title>
+    <meta name="color-scheme" content="light">
+    <title>期末報告</title>
 
     <style>
       button.start-game-button {
-        padding: .5rem .7rem;
-        font-size: 1.8rem;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-        background-color: #343434;
+        background-image: url("gui/default.webp");
+        background-position: center bottom;
+        background-repeat: none;
+        background-size: 100% 100%;
+        border: none;
+        width: 140px;
+        aspect-ratio: 355 / 201;
+        cursor: pointer;
+      }
+
+      button.start-game-button:active {
+        background-image: url("gui/pause.webp");
       }
 
       .start-game-button a{
         color: white;
       }
+
+      div.progress_bar {
+        height: 20px;
+        background: linear-gradient(45deg, #213547 0 65%, #182836 65% 100%);
+        background-position: top left;
+        animation: loading 4s ease-in-out forwards;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      @keyframes loading {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 60%;
+        }
+      }
+
     </style>
 
-    <script type="module" crossorigin src="/assets/main-R6-TiNIX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DJNqOTrD.css">
+    <script type="module" crossorigin src="/assets/main-BaavKLZE.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-LQYU0Nce.css">
   </head>
   <body>
 
     <nav class="navbar">
       <ul class="navbar-list">
-        <li class="navbar-link active">
-            <a href="/index.html">首頁</a>
-        </li>
-        <li class="navbar-link ">
-            <a href="/pages/about-me.html">關於我們</a>
-        </li>
-        <li class="navbar-link">
-            <a href="/pages/download.html">下載專區</a>
-        </li>
-        <li class="navbar-link">
-            <a href="/pages/thanks.html">恩謝</a>
-        </li>
+        <div>
+          <li class="navbar-link active">
+              <a href="/index.html">首頁</a>
+          </li>
+          <li class="navbar-link ">
+              <a href="/pages/about-me.html">關於我們</a>
+          </li>
+          <li class="navbar-link">
+              <a href="/pages/download.html">下載專區</a>
+          </li>
+          <li class="navbar-link">
+              <a href="/pages/thanks.html">恩謝</a>
+          </li>
+        </div>
+        <div>
+          <li class="navbar-link github">
+            <a target="_github" href="https://github.com/113-NUPS-NTNU-Spring-Class-Report/113-NUPS-NTNU-Spring-Class-Report.github.io">Github</a>
+          </li>
+        </div>
       </ul>
     </nav>
     
-    <button class="start-game-button">
-      <a href="/pages/games/first.html">
-        開始游戲
-      </a>
-    </button>
+    <button class="start-game-button"></button>
 
+    <!-- <div class="progress_bar"> -->
+
+    </div>
+
+
+    <script>
+
+    </script>
 
   </body>
-
   
 </html>
