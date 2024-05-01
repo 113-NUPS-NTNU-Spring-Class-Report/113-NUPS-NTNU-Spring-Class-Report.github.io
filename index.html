@@ -8,6 +8,8 @@
     <meta name="color-scheme" content="light">
     <title>期末報告</title>
 
+    <link rel="preload" as="image" href="gui/pause.webp">
+
     <style>
       button.start-game-button {
         position: absolute;
@@ -33,7 +35,7 @@
       }
 
       div.progress_bar {
-        height: 40px;
+        height: 20px;
         width: 0px;
         border-radius: 5px;
         background-position: top left;
@@ -81,12 +83,12 @@
           <li class="navbar-link ">
               <a href="/pages/about-me.html">關於我們</a>
           </li>
-          <li class="navbar-link">
+          <!-- <li class="navbar-link">
               <a href="/pages/download.html">下載專區</a>
           </li>
           <li class="navbar-link">
               <a href="/pages/thanks.html">恩謝</a>
-          </li>
+          </li> -->
         </div>
         <div>
           <li class="navbar-link github">
@@ -109,6 +111,9 @@
       const bar = document.querySelector('.progress_bar');
       button.addEventListener('click', () => {
         bar.style.animation = "gradient 3s ease-in-out infinite, loading 7s cubic-bezier(0.1, 0.7, 1, 0.1) forwards"
+        setTimeout(() => {
+          window.location.href = './pages/games/first.html'
+        }, 7000)
       });
     </script>
 

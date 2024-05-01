@@ -15,18 +15,40 @@ export class EventHandle {
         this.actions.push({ action, delay: this.totalDelay });
     }
 
+    skip() {
+        if (this.actions.length > 0) {
+            this.executeAction(true)
+        }
+    } 
+
     start() {
-        this.executeAction(0);
+        this.executeAction()
     }
 
-    executeAction(index: number) {
-        if (index < this.actions.length) {
-            const { action, delay } = this.actions[index];
-            setTimeout(() => {
+    executeAction(skip: boolean = false) {
+
+        if (0 < this.actions.length) {
+
+            let { action, delay } = this.actions[0];
+
+            if (skip !== false) {
+
                 action();
-                this.executeAction(index + 1);
-            }, delay);
+                this.actions.shift();
+
+            } else {
+
+                setTimeout(() => {
+                    action();
+                    this.actions.shift();
+                }, delay);
+
+            }
+
+            return;
+
         }
+
     }
 
 }

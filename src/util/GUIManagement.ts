@@ -1,123 +1,18 @@
 
-interface GUIManagementInterface
-{
-    // Controller Background-Image
-    toggleBackgroundImage(): void;
-
-    // Controller Title
-    setTitle(title: string): void;
-    
-    // Controller Dialog
-    toggleDialog(): void;
-
-    // Controller Options
-    toggleOptions(): void;
-
-    // Controller Speaker
-    setSpeaker(): void;
-
-    // Controller Content
-    setContent(content: string): void;
-}
-
-export class GUIManagement implements GUIManagementInterface
+export class GUIManagement
 {
 
-    public backgroundImage: HTMLDivElement;
-    public title: HTMLParagraphElement;
-    public dialog: HTMLSelectElement;
-    public speaker: HTMLDivElement;
     public content: HTMLParagraphElement;
-    public options: HTMLDivElement;
+    public buttonOne: HTMLButtonElement;
+    public buttonTwo: HTMLButtonElement;
+    private actionOne!: Function;
+    private actionTwo!: Function;
 
     constructor(guiManagementHTMLDocument: GUIManagementHTMLElement) {
-        this.backgroundImage = guiManagementHTMLDocument['backgroundImage']
-        this.title = guiManagementHTMLDocument['title']
-        this.dialog = guiManagementHTMLDocument['dialog']
-        this.speaker = guiManagementHTMLDocument['speaker']
-        this.content = guiManagementHTMLDocument['content']
-        this.options = guiManagementHTMLDocument['options']
+        this.content = guiManagementHTMLDocument['content'],
+        this.buttonOne = guiManagementHTMLDocument['buttonOne'],
+        this.buttonTwo = guiManagementHTMLDocument['buttonTwo']
     }
-
-    setToggleBackgroundImage(path: string): void {
-
-        this.backgroundImage.querySelector('img')!.src = path;
-
-    }
-
-    toggleBackgroundImage(): void {
-
-        if (this.backgroundImage.style.display === "none") {
-            this.backgroundImage.style.display = "block"
-        } else {
-            this.backgroundImage.style.display = "none"
-        }
-
-    };
-
-    setTitle(title: string): void {
-        
-        this.title.classList.contains('active') ?
-            this.title.classList.remove('active') : '';
-
-        this.title.innerText = title;
-        setTimeout(() => {
-            this.title.classList.add('active');
-        }, 1000);
-    };
-
-    toggleDialog(): void {
-
-        if (this.dialog.style.display === "none") {
-            this.dialog.style.display = "block"
-        } else {
-            this.dialog.style.display = "none"
-        }
-
-    };
-
-    toggleOptions(): void {
-
-        if (this.options.style.display === "none") {
-            this.options.style.display = "block"
-        } else {
-            this.options.style.display = "none"
-        }
-
-    }
-
-    setOptions(options: Array<any>): void {
-
-        // clear child
-        const oldOptions = this.options.querySelectorAll<HTMLParagraphElement>('#option')
-        oldOptions.forEach(oldOption => {
-            this.options.removeChild(oldOption);
-        })
-
-        // create child
-        options.forEach(option => {
-
-            // validation
-            if(!option.text || !option.event) {
-                throw new Error('The \'Options\' missing parameter');
-            }
-
-            // 
-            const button = document.createElement('p');
-            button.innerText = option.text;
-            button.id = 'option';
-            button.onclick = function() {
-                option.event();
-            }
-
-            this.options.appendChild(button);
-        });
-
-    }
-
-    setSpeaker(): void {
-
-    };
 
     setContent(content: string): void {
 
@@ -139,48 +34,66 @@ export class GUIManagement implements GUIManagementInterface
 
     };
 
+    toggleButton(): void {
+        if (this.buttonOne.disabled) {
+            buttonOne.disabled = false;
+            buttonTwo.disabled = false;
+        } else {
+            buttonOne.disabled = true;
+            buttonTwo.disabled = true;
+        }
+    }
+
+    chooseButtonOne(action: () => void): void {
+        this.actionOne = action;
+    }
+
+    chooseButtonTwo(action: () => void): void {
+        this.actionTwo = action;
+    }
+
+    runButtonOne() {
+        this.toggleButton()
+        this.actionOne()
+    }
+
+    runButtonTwo() {
+        this.toggleButton()
+        this.actionTwo()
+    }
+
+    setButtonText(textOne: string, textTwo: string): void {
+        this.buttonOne.innerText = textOne;
+        this.buttonTwo.innerText = textTwo;
+    }
+
 }
 
 class GUIManagementHTMLElement
 {
-    public backgroundImage: HTMLDivElement;
-    public title: HTMLParagraphElement;
-    public dialog: HTMLSelectElement;
-    public speaker: HTMLDivElement;
     public content: HTMLParagraphElement;
-    public options: HTMLDivElement;
+    public buttonOne: HTMLButtonElement;
+    public buttonTwo: HTMLButtonElement;
 
     constructor(
-        backgroundImage: HTMLDivElement,
-        title: HTMLParagraphElement,
-        dialog: HTMLSelectElement,
-        speaker: HTMLDivElement,
         content: HTMLParagraphElement,
-        options: HTMLDivElement
+        buttonOne: HTMLButtonElement,
+        buttonTwo: HTMLButtonElement,
     ) {
-        this.backgroundImage = backgroundImage;
-        this.title = title;
-        this.dialog = dialog;
-        this.speaker = speaker;
         this.content = content;
-        this.options = options;
+        this.buttonOne = buttonOne;
+        this.buttonTwo = buttonTwo;
     }
 }
 
-const backgroundImage = document.querySelector<HTMLDivElement>('#background-image')!;
-const title = document.querySelector<HTMLParagraphElement>('#title')!;
-const dialog = document.querySelector<HTMLSelectElement>('#dialog')!;
-const speaker = document.querySelector<HTMLDivElement>('#speaker')!;
 const content = document.querySelector<HTMLParagraphElement>('#content')!;
-const options = document.querySelector<HTMLDivElement>('#options')!;
+const buttonOne = document.querySelector<HTMLButtonElement>('#option-one')!;
+const buttonTwo = document.querySelector<HTMLButtonElement>('#option-two')!;
 
 const config = new GUIManagementHTMLElement(
-    backgroundImage,
-    title,
-    dialog,
-    speaker,
     content,
-    options
+    buttonOne,
+    buttonTwo
 );
 
 export const guiManagement = new GUIManagement(config);
