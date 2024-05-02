@@ -1,4 +1,4 @@
-import { GUIManagement, game } from "../util/GUIManagement";
+import { game } from "../util/GUIManagement";
 import { EventHandle } from "../util/EventHandle";
 
 // #region

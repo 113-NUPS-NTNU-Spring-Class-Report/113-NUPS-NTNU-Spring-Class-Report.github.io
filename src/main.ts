@@ -1,5 +1,5 @@
 import './style.css'
-import { GUIManagement, guiManagement } from './util/GUIManagement.ts';
+import { GUIManagement, game } from './util/GUIManagement.ts';
 // import typescriptLogo from './typescript.svg'
 // import viteLogo from '/vite.svg'
 // import { setupCounter } from './counter.ts'

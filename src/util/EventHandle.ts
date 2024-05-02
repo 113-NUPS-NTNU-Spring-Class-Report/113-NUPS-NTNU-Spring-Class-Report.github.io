@@ -1,5 +1,3 @@
-import { game } from "./GUIManagement";
-
 
 export class EventHandle {
 
