@@ -28,8 +28,6 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 aboutMe: resolve(__dirname, 'pages/about-me.html'),
-                download: resolve(__dirname, 'pages/download.html'),
-                thanks: resolve(__dirname, 'pages/thanks.html'),
                 chapterFirst: resolve(__dirname, 'pages/games/first.html'),
             },
         }

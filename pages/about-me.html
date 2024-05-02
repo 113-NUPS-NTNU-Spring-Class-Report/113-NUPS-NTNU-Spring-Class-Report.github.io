@@ -34,10 +34,17 @@
       
       div.panel-box {
         display: grid;
-        width: auto;
+        justify-items: center;
+        width: 100%;
         margin-top: 1.4rem;
         grid-template-columns: 1fr;
         gap: 1.4rem;
+      }
+
+      @media screen and (max-width: 640px) {
+        div.panel-box {
+          align-items: center;
+        }
       }
 
       div.panel {
@@ -51,6 +58,8 @@
         align-items: center;
         aspect-ratio: 1 / 1;
         max-width: 400px;
+        width: 100%;
+        height: auto;
         transition: all .12s ease-in-out;
       }
 
@@ -71,7 +80,7 @@
         overflow: hidden;
         margin: 1.8rem 0;
         aspect-ratio: 1 / 1;
-        width: 200px;
+        max-width: 200px;
       }
 
       div.panel > div.avatar > img {

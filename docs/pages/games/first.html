@@ -22,7 +22,7 @@
         }
 
         img {
-            height: 65vh;
+            height: 55vh;
             width: 100%;
             object-fit: cover;
             object-position: center center;
@@ -30,7 +30,7 @@
 
         div.dialog {
             background-color: #0f0f0f;
-            height: 35vh;
+            height: 45vh;
             width: 100%;
             display: grid;
             grid-template-columns: 1fr;
@@ -46,7 +46,34 @@
         div.dialog > div.button {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12rem;
+            gap: 2rem 12rem;
+        }
+
+        div#skip {
+            display: block;
+            position: absolute;
+            bottom: 24vh;
+            right: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        div#skip::after{
+                content: "按 Space 跳過 >>"
+            }
+
+        div#skip:hover {
+            color: gray;
+        }
+
+        @media screen and (max-width: 640px) {
+            div.dialog > div.button {
+                grid-template-columns: 1fr;
+            }
+
+            div#skip::after{
+                content: "點擊跳過 >>"
+            }
         }
 
         div.dialog > div.button > button {
@@ -84,9 +111,9 @@
 
     </style>
 
-    <script type="module" crossorigin src="/assets/chapterFirst-BQEa-Pj5.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/main-zXTf040v.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-xZ4mXZNK.css">
+    <script type="module" crossorigin src="/assets/chapterFirst-WQVa9cN3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-C6_EokkH.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-CPU5CXfL.css">
   </head>
   <body>
 
@@ -107,6 +134,8 @@
             <button id="option-two" disabled>
                 第二按鈕
             </button>
+
+            <div id="skip"></div>
 
         </div>
 

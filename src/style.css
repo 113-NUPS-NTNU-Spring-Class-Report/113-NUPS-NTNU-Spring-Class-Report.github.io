@@ -53,6 +53,7 @@ nav.navbar {
   position: sticky;
   top: 2rem;
   z-index: 100;
+  background: linear-gradient(45deg, #213547 0 65%, #182836 65% 100%);
 }
 
 ul.navbar-list {
@@ -60,7 +61,6 @@ ul.navbar-list {
   justify-content: space-between;
   align-items: center;
   color: white;
-  background: linear-gradient(45deg, #213547 0 65%, #182836 65% 100%);
 }
 
 ul.navbar-list > div {
@@ -149,4 +149,22 @@ div.image-box > #background-image {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media screen and (max-width: 640px) {
+
+  /* Navbar */
+  nav.navbar {
+    padding: 1rem 0;
+  }
+
+  ul.navbar-list {
+    flex-direction: column;
+  }
+
+  ul.navbar-list > div {
+    flex-direction: column;
+    padding: 0 2rem .6rem;
+  }
+
 }

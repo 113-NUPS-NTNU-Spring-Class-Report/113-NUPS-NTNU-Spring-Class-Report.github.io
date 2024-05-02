@@ -20,6 +20,10 @@ document.body.onkeyup = function(e) {
     }
 }
 
+document.querySelector("#skip")!.addEventListener('click', () => {
+    main.skip();
+})
+
 main.addAction(() => {
     guiManagement.setContent("你好啊")
 }, 0)
