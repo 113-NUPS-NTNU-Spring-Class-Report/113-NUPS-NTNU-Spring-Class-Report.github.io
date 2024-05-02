@@ -1,3 +1,4 @@
+import { game } from "./GUIManagement";
 
 
 export class EventHandle {
@@ -10,8 +11,8 @@ export class EventHandle {
         this.totalDelay = 0;
     }
 
-    addAction(action: () => void, delay: number) {
-        this.totalDelay = this.totalDelay + delay;
+    addAction(action: () => void, delay?: number) {
+        this.totalDelay = this.totalDelay;
         this.actions.push({ action, delay: this.totalDelay });
     }
 
@@ -33,8 +34,8 @@ export class EventHandle {
 
             if (skip !== false) {
 
-                action();
                 this.actions.shift();
+                action();
 
             } else {
 

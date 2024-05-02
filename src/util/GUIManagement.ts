@@ -18,30 +18,41 @@ export class GUIManagement
 
         const data = content.split('')
         const container = this.content;
+        container.innerHTML = ""
 
         if(container.innerHTML.split('').length > 0) {
             container.innerHTML = '';
         }
 
         let index = 0
-        function writing() {
-            if (index < data.length) {
-                container.innerHTML += data[index ++];
-                setTimeout(writing, 60);
-            }
+        const writing = () => {
+            // if (index < data.length) {
+            //     container.innerHTML += data[index ++];
+            //     setTimeout(writing, 30);
+            // }
+
+            container.innerHTML = content;
         }
         writing();
-
     };
 
-    toggleButton(): void {
-        if (this.buttonOne.disabled) {
-            buttonOne.disabled = false;
-            buttonTwo.disabled = false;
+    toggleButton(one: boolean | null = null, two: boolean | null = null): void {
+
+        if (one !== null && two !== null) {
+            buttonOne.disabled = one;
+            buttonTwo.disabled = two;
         } else {
-            buttonOne.disabled = true;
-            buttonTwo.disabled = true;
+
+            if (this.buttonOne.disabled == true || this.buttonTwo.disabled == true) {
+                buttonOne.disabled = false;
+                buttonTwo.disabled = false;
+            } else {
+                buttonOne.disabled = true;
+                buttonTwo.disabled = true;
+            }
+
         }
+
     }
 
     chooseButtonOne(action: () => void): void {
@@ -53,12 +64,10 @@ export class GUIManagement
     }
 
     runButtonOne() {
-        this.toggleButton()
         this.actionOne()
     }
 
     runButtonTwo() {
-        this.toggleButton()
         this.actionTwo()
     }
 
@@ -96,4 +105,4 @@ const config = new GUIManagementHTMLElement(
     buttonTwo
 );
 
-export const guiManagement = new GUIManagement(config);
+export const game = new GUIManagement(config);

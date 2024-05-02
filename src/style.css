@@ -137,6 +137,15 @@ div.image-box > #background-image {
   object-fit: cover;
 }
 
+span.plot {
+  color: gold;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+span.plot:hover {
+  text-decoration: underline;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
