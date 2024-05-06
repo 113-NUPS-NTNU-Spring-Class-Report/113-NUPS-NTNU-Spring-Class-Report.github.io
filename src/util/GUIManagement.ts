@@ -5,6 +5,7 @@ export class GUIManagement
     public content: HTMLParagraphElement;
     public buttonOne: HTMLButtonElement;
     public buttonTwo: HTMLButtonElement;
+    public image: HTMLImageElement;
     private actionOne!: Function;
     private actionTwo!: Function;
 
@@ -12,6 +13,7 @@ export class GUIManagement
         this.content = guiManagementHTMLDocument['content'],
         this.buttonOne = guiManagementHTMLDocument['buttonOne'],
         this.buttonTwo = guiManagementHTMLDocument['buttonTwo']
+        this.image = guiManagementHTMLDocument['image']
     }
 
     setContent(content: string): void {
@@ -24,15 +26,55 @@ export class GUIManagement
             container.innerHTML = '';
         }
 
-        let index = 0
-        const writing = () => {
-            // if (index < data.length) {
-            //     container.innerHTML += data[index ++];
-            //     setTimeout(writing, 30);
-            // }
+        let tag: boolean = false;
+        let tagContent = '';
+        let loop = true;
 
-            container.innerHTML = content;
+        const writing = () => {
+
+            if (loop === false) {
+                return 
+            }
+
+            for (let index = 0; index < data.length; index++) {
+
+                if(index >= data.length - 1) {
+                    loop = false;
+                }
+
+                console.log(data[index], data[index] === "<" || tag === true)
+
+                // are html tag
+                if(data[index] === "<" || tag === true){
+
+                    if (data[index] === ">") {
+                        tag = false
+                    } else {
+                        tag = true;
+                    }
+                    
+                    tagContent += data[index];
+                    console.log(tagContent)
+
+                } else if (data[index] === ">" && tag === false) {
+
+                    container.innerHTML += tagContent
+                    console.log(container.innerHTML)
+                    tagContent = ''
+                    
+                } else {
+    
+                    container.innerHTML += data[index];
+                    setTimeout(writing, 5);
+
+                }
+
+                // console.log(tagContent)
+            }
+
+            // container.innerHTML = content;
         }
+
         writing();
     };
 
@@ -76,6 +118,10 @@ export class GUIManagement
         this.buttonTwo.innerText = textTwo;
     }
 
+    setImage(src: string) {
+        image.src = `/image/game/${src}`;
+    }
+
 }
 
 class GUIManagementHTMLElement
@@ -83,26 +129,31 @@ class GUIManagementHTMLElement
     public content: HTMLParagraphElement;
     public buttonOne: HTMLButtonElement;
     public buttonTwo: HTMLButtonElement;
+    public image: HTMLImageElement;
 
     constructor(
         content: HTMLParagraphElement,
         buttonOne: HTMLButtonElement,
         buttonTwo: HTMLButtonElement,
+        image: HTMLImageElement
     ) {
         this.content = content;
         this.buttonOne = buttonOne;
         this.buttonTwo = buttonTwo;
+        this.image = image;
     }
 }
 
 const content = document.querySelector<HTMLParagraphElement>('#content')!;
 const buttonOne = document.querySelector<HTMLButtonElement>('#option-one')!;
 const buttonTwo = document.querySelector<HTMLButtonElement>('#option-two')!;
+const image = document.querySelector<HTMLImageElement>('#img')!;
 
 const config = new GUIManagementHTMLElement(
     content,
     buttonOne,
-    buttonTwo
+    buttonTwo,
+    image
 );
 
 export const game = new GUIManagement(config);

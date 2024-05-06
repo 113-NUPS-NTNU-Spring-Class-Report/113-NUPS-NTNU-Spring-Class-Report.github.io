@@ -131,6 +131,8 @@ main.addAction(() => {
 branch1.addAction(() => {
     game.setContent("不對啊你怎麼想的 這情況也敢睡？(遊戲結束 妳在雪地裏長眠了) 收錄劇情<span class='plot' title='開局即結束'>《落地成盒》</span>")
 
+    game.setImage("死亡.jpg")
+
     game.toggleButton(false, true)
 
     game.setButtonText(
