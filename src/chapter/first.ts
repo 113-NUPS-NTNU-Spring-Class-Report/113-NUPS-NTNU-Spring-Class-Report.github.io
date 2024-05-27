@@ -310,6 +310,11 @@ branch222.addAction(() => {
     main.addAction(() => {
         game.setContent("夜裏 你和老人促膝長談 對話中得知對方七歲時親眼看著父母被不知名的怪物殺害 從此孤身一人在這末日下 生存至今 你既感慨命運無常又痛恨怪物們殘暴的性情")
     })
+
+    main.addAction(() => {
+        game.toggleButton()
+        branch22123.start()
+    })
 })
 // #endregion
 
