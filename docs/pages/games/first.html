@@ -22,7 +22,7 @@
         }
 
         img {
-            height: 45vh;
+            height: 65vh;
             width: 100%;
             object-fit: cover;
             object-position: center center;
@@ -30,12 +30,21 @@
 
         div.dialog {
             background-color: #0f0f0f;
-            height: 55vh;
+            height: 35vh;
             width: 100%;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 3fr 1fr;
             padding: 2rem;
+        }
+
+        @media screen and (max-width: 720px) {
+            img {
+                height: 45vh;
+            }
+            div.dialog {
+                height: 55vh;
+            }
         }
 
         div.dialog > p.content {
@@ -111,13 +120,13 @@
 
     </style>
 
-    <script type="module" crossorigin src="/assets/chapterFirst--ySX8rbw.js"></script>
+    <script type="module" crossorigin src="/assets/chapterFirst-DXXOmgDu.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/main-D76lyQjM.js">
     <link rel="stylesheet" crossorigin href="/assets/main-FYv3ghAZ.css">
   </head>
   <body>
 
-    <img src="/test.png" alt="">
+    <img id="img" src="/image/game/白霧.jpg" alt="">
 
     <div class="dialog">
 
