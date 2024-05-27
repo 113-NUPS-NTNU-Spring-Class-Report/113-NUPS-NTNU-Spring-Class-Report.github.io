@@ -187,7 +187,7 @@ branch2.addAction(() => {
         })
 
         game.chooseButtonTwo(() => {
-            
+            branch22.start()
         })
 
     })
