@@ -312,7 +312,6 @@ branch222.addAction(() => {
     })
 
     main.addAction(() => {
-        game.toggleButton()
         branch22123.start()
     })
 })
